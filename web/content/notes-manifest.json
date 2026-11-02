@@ -1,0 +1,47 @@
+{
+  "generatedAt": "2026-11-02T01:52:09.306Z",
+  "totalNotes": 2,
+  "notes": [
+    {
+      "slug": "architecture-overview",
+      "title": "Architecture Overview",
+      "date": "Sat Oct 31 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "tags": [
+        "architecture",
+        "design"
+      ],
+      "aliases": [],
+      "published": true,
+      "filePath": "Architecture Overview.md",
+      "excerpt": "The system consists of three layers: 1. Obsidian Vault: Your local personal knowledge base. 2. Sync Pipeline (scripts/obsidian-sync): Resolves [[wikilinks]], computes backlinks, an...",
+      "outlinks": [
+        "wikilinks",
+        "Welcome"
+      ],
+      "backlinks": [
+        "welcome"
+      ]
+    },
+    {
+      "slug": "welcome",
+      "title": "Welcome to My Obsidian Digital Garden",
+      "date": "Sat Oct 31 2026 20:00:00 GMT-0400 (Eastern Daylight Time)",
+      "tags": [
+        "knowledge",
+        "obsidian",
+        "nextjs"
+      ],
+      "aliases": [],
+      "published": true,
+      "filePath": "Welcome.md",
+      "excerpt": "This note was written directly in Obsidian! - Check out [[Architecture Overview]] to see how this pipeline works. - Learn more about [[Next.js Markdown Rendering|Rendering in Next....",
+      "outlinks": [
+        "Architecture Overview",
+        "Next.js Markdown Rendering"
+      ],
+      "backlinks": [
+        "architecture-overview"
+      ]
+    }
+  ]
+}
