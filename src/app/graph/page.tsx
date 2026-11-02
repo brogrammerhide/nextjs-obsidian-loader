@@ -22,7 +22,7 @@ export default async function GraphPage() {
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col">
         <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-3xl font-extrabold text-white tracking-tight">
+            <h1 className="text-3xl font-extrabold text-slate-100 tracking-tight">
               Interactive Knowledge Graph
             </h1>
             <p className="text-sm text-slate-400 mt-1">

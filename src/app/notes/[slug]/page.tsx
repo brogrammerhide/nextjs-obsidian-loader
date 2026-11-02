@@ -132,7 +132,7 @@ function MarkdownRenderer({ content }: { content: string }) {
       renderedElements.push(
         <h1
           key={`h1-${idx}`}
-          className="text-3xl sm:text-4xl font-extrabold text-white mt-8 mb-4 tracking-tight"
+          className="text-3xl sm:text-4xl font-extrabold text-slate-100 mt-8 mb-4 tracking-tight"
         >
           {trimmed.replace(/^#\s+/, "")}
         </h1>
@@ -219,7 +219,7 @@ function parseInlineMarkdown(text: string): string {
       /`([^`]+)`/g,
       '<code class="px-1.5 py-0.5 rounded bg-slate-900 border border-slate-800 text-purple-300 font-mono text-xs">$1</code>'
     )
-    .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-white">$1</strong>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong class="font-bold text-slate-100">$1</strong>')
     .replace(/\*([^*]+)\*/g, '<em class="italic text-slate-200">$1</em>')
     .replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
@@ -268,7 +268,7 @@ export default async function NoteDetailPage({ params }: NotePageProps) {
             ))}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-100 tracking-tight mb-4">
             {note.title}
           </h1>
 

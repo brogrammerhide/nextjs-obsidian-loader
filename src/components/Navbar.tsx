@@ -1,9 +1,10 @@
 import Link from "next/link";
+import ThemeSwitcher from "@/components/ThemeSwitcher";
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-16 py-2 flex flex-wrap items-center justify-between gap-y-2">
         <Link href="/" className="flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 via-indigo-600 to-violet-400 p-[1px] shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-transform duration-200">
             <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
@@ -20,19 +21,25 @@ export default function Navbar() {
           </div>
         </Link>
 
-        <nav className="flex items-center gap-1 sm:gap-2">
+        <nav className="w-full sm:w-auto flex flex-wrap items-center justify-between sm:justify-end gap-1 sm:gap-2">
           <Link
             href="/"
-            className="px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors"
+            className="px-2 sm:px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-slate-800/60 transition-colors"
           >
             Notes
           </Link>
           <Link
             href="/graph"
-            className="px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
+            className="px-2 sm:px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-slate-800/60 transition-colors flex items-center gap-1.5"
           >
             <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
             Graph View
+          </Link>
+          <Link
+            href="/assets"
+            className="px-2 sm:px-3.5 py-1.5 rounded-lg text-sm font-medium text-slate-300 hover:text-slate-100 hover:bg-slate-800/60 transition-colors"
+          >
+            Assets
           </Link>
           <a
             href="https://github.com"
@@ -42,6 +49,9 @@ export default function Navbar() {
           >
             Docs & Specs
           </a>
+          <div className="ml-auto sm:ml-0">
+            <ThemeSwitcher />
+          </div>
         </nav>
       </div>
     </header>

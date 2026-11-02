@@ -1,40 +1,50 @@
-# 🪨 Next.js Obsidian Loader
-
-A monorepo workspace for syncing notes from an [Obsidian](https://obsidian.md) vault and serving them as a modern, high-performance digital garden using [Next.js](https://nextjs.org).
-
-## 📁 Repository Projects
-
-This workspace contains three core projects:
-
-1. **[`web/`](web/)**: Next.js App Router application styled with Tailwind CSS v4. Features page generation, fast search, tag filtering, and bidirectional backlink exploration.
-2. **[`scripts/obsidian-sync/`](scripts/obsidian-sync/)**: TypeScript CLI pipeline (`tsx`) that extracts YAML frontmatter, resolves `[[wikilinks]]` to Next.js routes, builds backlinks, and writes parsed content & `notes-manifest.json`.
-3. **[`docs/`](docs/)**: Architectural documentation, Getting Started guide, Obsidian vault specification, and manifest schema definitions.
-
-## ⚡ Quick Start
-
-### 1. Sync Obsidian Notes
-Run the TypeScript sync pipeline against the bundled sample vault:
-
-```bash
-cd scripts/obsidian-sync
-npm install
-npm run sync
+```json
+{
+  storage: {
+    provider: 'cloudinary',
+    cloudName: 'f8k2ntq4',
+    assetFolder: 'ruecli-test',
+    publicId: 'test-badman_tfbvck',
+    secureUrl: 'https://res.cloudinary.com/f8k2ntq4/image/upload/v1793590674/test-badman_tfbvck.avif',
+    format: 'avif'
+  },
+  createdAt: ISODate('2026-11-02T03:37:55.692Z'),
+  file: {
+    size: NumberInt('90930'),
+    extension: 'png'
+  },
+  filename: 'test-badman.png',
+  source: {
+    path: '/mnt/c/Users/hideh/Desktop/asus-rubuntu/ruecli/test/fixtures/test-badman.png'
+  },
+  status: 'PUBLISHED',
+  updatedAt: ISODate('2026-11-02T03:37:55.692Z')
+}
 ```
 
-### 2. Launch Next.js Web App
-Start the Next.js development server:
+## MongoDB Atlas asset API
 
-```bash
-cd ../../web
-npm install
-npm run dev
+Configure the Atlas connection in `web/.env.local`:
+
+```dotenv
+MONGODB_URI=
+MONGODB_DB=
+MONGODB_ASSETS_COLLECTION=assets
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
+Set `MONGODB_URI` to the connection string from Atlas and `MONGODB_DB` to the
+database containing the asset records. `MONGODB_ASSETS_COLLECTION` is optional
+and defaults to `assets`. Keep the connection string server-side; do not prefix
+it with `NEXT_PUBLIC_`.
 
-## 📖 Documentation
+`GET /api/assets` returns published records as `{ "data": [...], "total": n }`.
+The response omits each record's source filesystem path. Visit `/assets` to
+render the returned records in the gallery. If the connection settings are
+missing or Atlas cannot be reached, the endpoint responds with HTTP 500.
 
-- [System Architecture](docs/architecture.md)
-- [Getting Started Guide](docs/getting-started.md)
-- [Obsidian Vault Specifications](docs/obsidian-vault-spec.md)
-- [Manifest & Graph API](docs/api-and-manifest.md)
+## Themes
+
+Use the theme selector in the navigation bar to choose one of eight UI palettes:
+Midnight Violet, Obsidian, Ocean, Forest, Sunset, Rose, Paper, or Nord. The
+selection applies across the notes, graph, and assets pages and is saved in
+browser storage.

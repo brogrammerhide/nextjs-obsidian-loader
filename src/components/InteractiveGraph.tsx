@@ -63,7 +63,13 @@ export default function InteractiveGraph({
   return (
     <div className="relative w-full rounded-2xl bg-slate-950 border border-slate-800/80 overflow-hidden shadow-2xl">
       {/* Background Grid Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
+      <div
+        className="absolute inset-0 [background-size:24px_24px] opacity-20 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(var(--theme-grid) 1px, transparent 1px)",
+        }}
+      />
 
       {/* Hover Info Tooltip */}
       {hoveredNode && (
@@ -102,8 +108,8 @@ export default function InteractiveGraph({
       >
         <defs>
           <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stopColor="#a855f7" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#6366f1" stopOpacity="0" />
+            <stop offset="0%" stopColor="var(--theme-glow-start)" stopOpacity="0.8" />
+            <stop offset="100%" stopColor="var(--app-accent)" stopOpacity="0" />
           </radialGradient>
         </defs>
 
@@ -125,7 +131,7 @@ export default function InteractiveGraph({
                 y1={sourceNode.y}
                 x2={targetNode.x}
                 y2={targetNode.y}
-                stroke={isHighlighted ? "#c084fc" : "#475569"}
+                stroke={isHighlighted ? "var(--theme-node-highlight)" : "var(--theme-line)"}
                 strokeWidth={isHighlighted ? 2.5 : 1.2}
                 strokeOpacity={
                   hoveredNodeId ? (isHighlighted ? 1 : 0.15) : 0.6
@@ -169,13 +175,13 @@ export default function InteractiveGraph({
                 {/* Node Outer Ring */}
                 <circle
                   r={radius}
-                  fill={isHovered ? "#7c3aed" : "#1e1b4b"}
+                  fill={isHovered ? "var(--theme-node-hover)" : "var(--theme-node)"}
                   stroke={
                     isHovered
-                      ? "#e9d5ff"
+                      ? "var(--theme-accent-on)"
                       : isConnected
-                      ? "#a855f7"
-                      : "#4f46e5"
+                      ? "var(--theme-node-highlight)"
+                      : "var(--app-accent)"
                   }
                   strokeWidth={isHovered ? 3 : 1.5}
                   opacity={hoveredNodeId && !isConnected ? 0.3 : 1}
@@ -185,7 +191,7 @@ export default function InteractiveGraph({
                 {/* Node Core */}
                 <circle
                   r={radius * 0.4}
-                  fill={isHovered ? "#ffffff" : "#a855f7"}
+                  fill={isHovered ? "var(--theme-accent-on)" : "var(--theme-accent-bright)"}
                   opacity={hoveredNodeId && !isConnected ? 0.3 : 1}
                 />
 
@@ -193,7 +199,7 @@ export default function InteractiveGraph({
                 <text
                   dy={radius + 16}
                   textAnchor="middle"
-                  fill={isHovered ? "#f1f5f9" : "#94a3b8"}
+                  fill={isHovered ? "var(--app-text-strong)" : "var(--app-muted)"}
                   fontSize={12}
                   fontWeight={isHovered ? "bold" : "normal"}
                   opacity={hoveredNodeId && !isConnected ? 0.2 : 1}

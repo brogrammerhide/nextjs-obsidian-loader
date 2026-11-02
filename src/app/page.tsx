@@ -29,14 +29,20 @@ export default async function HomePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-12 pb-16 border-b border-slate-800/60 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.2),rgba(255,255,255,0))]">
+      <section
+        className="relative overflow-hidden pt-12 pb-16 border-b border-slate-800/60"
+        style={{
+          background:
+            "radial-gradient(ellipse 80% 80% at 50% -20%, var(--theme-hero-glow), transparent)",
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-semibold uppercase tracking-wider mb-6">
             <span className="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
             Next.js + Obsidian Sync Pipeline
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-white mb-6 max-w-4xl">
+          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-100 mb-6 max-w-4xl">
             A Modern Digital Garden Powered by{" "}
             <span className="bg-gradient-to-r from-purple-400 via-violet-300 to-indigo-400 bg-clip-text text-transparent">
               Obsidian & Next.js
@@ -126,7 +132,7 @@ export default async function HomePage() {
         <section className="bg-gradient-to-r from-purple-950/30 to-slate-900/50 border border-purple-500/20 rounded-2xl p-6 sm:p-8">
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             <div>
-              <h3 className="text-lg font-bold text-white mb-2">
+              <h3 className="text-lg font-bold text-slate-100 mb-2">
                 Syncing Notes from Your Local Obsidian Vault
               </h3>
               <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
